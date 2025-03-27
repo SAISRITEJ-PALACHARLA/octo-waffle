@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: db-service
+  labels:
+    name: kubestriker
+    app: kubestriker
+spec:
+  type: ClusterIP
+  selector:
+    app: kubestriker
+    component: database
+  ports:
+    - port: 8000
+      protocol: TCP
+      targetPort: 8000
+      name: db-service
